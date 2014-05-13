@@ -1,47 +1,24 @@
-var t = require('../index'),
-  should = require('should'),
-  fs = require('fs')
+var test = require('tape')
+var fs = require('fs')
+var grid = require('./')
 
-describe('grid', function(){
-  it('should create a 100x100 grid as a Point FeatureCollection', function(done){
-    var syncGrid = t.grid([0,0,10,10], 10, function(err, grid){
-      if(err) throw err
-      grid.should.be.ok
-      grid.type.should.equal('FeatureCollection')
-      grid.features[0].geometry.type.should.equal('Point')
-      //fs.writeFileSync('./testOut/grid.geojson',JSON.stringify(grid))
-    })
+test('grid', function(t){  
+  var gridded = grid([0,0,10,10], 10)
 
-    if (typeof syncGrid === 'Error') {
-      throw syncGrid;
-    }
+  t.ok(gridded, 'should create a 100x100 grid as a Point FeatureCollection')
+  t.equal(gridded.type, 'FeatureCollection')
+  t.equal(gridded.features[0].geometry.type, 'Point')
 
-    syncGrid.should.be.ok;
-    syncGrid.type.should.equal('FeatureCollection');
-    syncGrid.features[0].geometry.type.should.equal('Point');
-    done();
-  })
-  it('should work properly with a negative start value', function(done){
-    var syncGrid = t.grid([-20,-20,20,20], 10, function(err, grid){
-      if(err) throw err
-      grid.should.be.ok
-      grid.type.should.equal('FeatureCollection')
-      grid.features[0].geometry.type.should.equal('Point')
-      grid.features[0].geometry.coordinates[0].should.equal(-20)
-      grid.features[0].geometry.coordinates[0].should.equal(-20)
-      //fs.writeFileSync('./testOut/grid.geojson',JSON.stringify(grid))
-    })
+  fs.writeFileSync(__dirname+'/geojson/grid1.geojson', JSON.stringify(tinned))
 
-    if (typeof syncGrid === 'Error') {
-      throw syncGrid;
-    }
 
-    syncGrid.should.be.ok;
-    syncGrid.type.should.equal('FeatureCollection');
-    syncGrid.features[0].geometry.type.should.equal('Point');
-    syncGrid.features[0].geometry.coordinates[0].should.equal(-20);
-    syncGrid.features[0].geometry.coordinates[0].should.equal(-20);
+  var gridded = grid([0,0,10,10], 10)
 
-    done();
-  })
-}) 
+  t.ok(gridded, 'should work properly with a negative start value')
+  t.equal(gridded.type, 'FeatureCollection')
+  t.equal(gridded.features[0].geometry.type, 'Point')
+
+  fs.writeFileSync(__dirname+'/geojson/grid2.geojson', JSON.stringify(tinned))
+
+  t.end()
+});
