@@ -16,7 +16,7 @@ module.exports = function(extents, depth, done){
 
   for (var x=0; x<=depth; x++){
     for (var y=0;y<=depth; y++){
-      fc.features.push(t.point((x * interval) + xmin, (y * interval) + ymin))
+      fc.features.push(point((x * interval) + xmin, (y * interval) + ymin))
     }
   }
   done(null, fc)
