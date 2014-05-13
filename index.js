@@ -1,7 +1,4 @@
-var t = {}
-var _ = require('lodash'),
-  point = require('./point')
-t.point = point
+var point = require('turf-point')
 
 module.exports = function(extents, depth, done){
   var xmin = extents[0]

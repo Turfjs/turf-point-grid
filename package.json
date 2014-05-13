@@ -24,5 +24,8 @@
   "homepage": "https://github.com/morganherlocker/turf-grid",
   "devDependencies": {
     "tape": "^2.12.3"
+  },
+  "dependencies": {
+    "turf-point": "^0.1.0"
   }
 }
