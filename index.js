@@ -9,7 +9,8 @@ var point = require('turf-point');
  * @return {FeatureCollection} output filled with features with {@link Point}
  * geometries
  * @example
- * turf.grid([0,0,10,10], 10)
+ * var grid = turf.grid([0,0,10,10], 10);
+ * //=grid
  */
 module.exports = function(extents, depth) {
   var xmin = extents[0];
