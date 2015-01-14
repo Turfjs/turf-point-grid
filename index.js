@@ -8,7 +8,11 @@ var point = require('turf-point');
  * @param {Number} depth how many cells to output
  * @return {FeatureCollection} grid as FeatureCollection with {@link Point} features
  * @example
- * var grid = turf.grid([0,0,10,10], 10);
+ * var extent = [-70.823364, -33.553984, -70.473175, -33.302986];
+ * var depth = 10;
+ *
+ * var grid = turf.grid(extent, depth);
+ *
  * //=grid
  */
 module.exports = function(extents, depth) {
