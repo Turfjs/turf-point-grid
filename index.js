@@ -29,7 +29,7 @@ module.exports = function(extents, depth) {
 
   for (var x=0; x<=depth; x++){
     for (var y=0;y<=depth; y++){
-      fc.features.push(point((x * interval) + xmin, (y * interval) + ymin));
+      fc.features.push(point([(x * interval) + xmin, (y * interval) + ymin]));
     }
   }
   return fc;
