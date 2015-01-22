@@ -1,35 +1,45 @@
-turf-grid
-=========
-[![Build Status](https://travis-ci.org/Turfjs/turf-grid.svg?branch=master)](https://travis-ci.org/Turfjs/turf-grid)
+# turf-grid
 
-Takes a bounding box and a cell depth and outputs a feature collection of points in a grid.
+[![build status](https://secure.travis-ci.org/Turfjs/turf-grid.png)](http://travis-ci.org/Turfjs/turf-grid)
 
-###Install
+turf grid module
+
+
+### `turf.grid(extent, depth)`
+
+Takes a bounding box and a cell depth and returns a FeatureCollection of Point features in a grid.
+
+
+### Parameters
+
+| parameter | type           | description                              |
+| --------- | -------------- | ---------------------------------------- |
+| `extent`  | Array.<number> | extent in [minX, minY, maxX, maxY] order |
+| `depth`   | Number         | how many cells to output                 |
+
+
+### Example
+
+```js
+var extent = [-70.823364, -33.553984, -70.473175, -33.302986];
+var depth = 10;
+
+var grid = turf.grid(extent, depth);
+
+//=grid
+```
+
+## Installation
+
+Requires [nodejs](http://nodejs.org/).
 
 ```sh
-npm install turf-grid
+$ npm install turf-grid
 ```
 
-###Parameters
+## Tests
 
-|name|description|
-|---|---|
-|bbox|where to put the grid|
-|depth|how many cells there will be|
-
-###Usage
-
-```js
-grid(bbox, depth)
+```sh
+$ npm test
 ```
 
-###Example
-
-```js
-var grid = require('turf-grid')
-var depth = 15
-
-var gridded = grid([0,0,10,10], depth)
-  
-console.log(gridded) // 15x15 grid of points in a FeatureCollection
-```

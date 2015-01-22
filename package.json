@@ -4,11 +4,12 @@
   "description": "turf grid module",
   "main": "index.js",
   "scripts": {
-    "test": "tape test.js"
+    "test": "tape test.js",
+    "doc": "dox -r < index.js | doxme --readme > README.md"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/morganherlocker/turf-grid.git"
+    "url": "https://github.com/Turfjs/turf-grid.git"
   },
   "keywords": [
     "turf",
@@ -19,14 +20,16 @@
   "author": "morganherlocker",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/morganherlocker/turf-grid/issues"
+    "url": "https://github.com/Turfjs/turf-grid/issues"
   },
-  "homepage": "https://github.com/morganherlocker/turf-grid",
+  "homepage": "https://github.com/Turfjs/turf-grid",
   "devDependencies": {
     "benchmark": "^1.0.0",
-    "tape": "^3.0.3"
+    "tape": "^3.0.3",
+    "dox": "^0.6.1",
+    "doxme": "^1.4.2"
   },
   "dependencies": {
-    "turf-point": "^1.2.0"
+    "turf-point": "^2.0.0"
   }
 }
