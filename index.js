@@ -1,10 +1,10 @@
 var point = require('turf-point');
 
 /**
- * Takes a bounding box and a cell depth and outputs points in a grid.
+ * Takes a bounding box and a cell depth and returns points in a grid.
  *
  * @module turf/grid
- * @param {Array<number>} extent extent in [xmin, ymin, xmax, ymax] order
+ * @param {Array<number>} extent extent in [xMin, yMin, xMax, yMax] order
  * @param {Number} depth how many cells to output
  * @return {FeatureCollection} grid as FeatureCollection with {@link Point} features
  * @example
