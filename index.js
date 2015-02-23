@@ -1,9 +1,10 @@
 var point = require('turf-point');
-
+var featurecollection = require('turf-featurecollection');
+var distance = require('turf-distance');
 /**
  * Takes a bounding box and a cell depth and returns a {@link FeatureCollection} of {@link Point} features in a grid.
  *
- * @module turf/grid
+ * @module turf/point-grid
  * @category interpolation
  * @param {Array<number>} extent extent in [minX, minY, maxX, maxY] order
  * @param {Number} depth how many cells to output
@@ -12,26 +13,27 @@ var point = require('turf-point');
  * var extent = [-70.823364, -33.553984, -70.473175, -33.302986];
  * var depth = 10;
  *
- * var grid = turf.grid(extent, depth);
+ * var grid = turf.pointGrid(extent, depth);
  *
  * //=grid
  */
-module.exports = function(extents, depth) {
-  var xmin = extents[0];
-  var ymin = extents[1];
-  var xmax = extents[2];
-  var ymax = extents[3];
-  var interval = (xmax - xmin) / depth;
-  var coords = [];
-  var fc = {
-    type: 'FeatureCollection',
-    features: []
-  };
+module.exports = function (bbox, cell, units) {
+  var fc = featurecollection([]);
+  var xFraction = cell / (distance(point([bbox[0], bbox[1]]), point([bbox[2], bbox[1]]), units));
+  var cellWidth = xFraction * (bbox[2] - bbox[0]);
+  var yFraction = cell / (distance(point([bbox[0], bbox[1]]), point([bbox[0], bbox[3]]), units));
+  var cellHeight = yFraction * (bbox[3] - bbox[1]);
 
-  for (var x=0; x<=depth; x++){
-    for (var y=0;y<=depth; y++){
-      fc.features.push(point([(x * interval) + xmin, (y * interval) + ymin]));
+  var currentX = bbox[0];
+  while (currentX <= bbox[2]) {
+    var currentY = bbox[1];
+    while (currentY <= bbox[3]) {
+      fc.features.push(point([currentX, currentY]));
+
+      currentY += cellHeight;
     }
+    currentX += cellWidth;
   }
+  
   return fc;
 }

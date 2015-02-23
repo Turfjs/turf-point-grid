@@ -1,11 +1,11 @@
-# turf-grid
+# turf-point-grid
 
-[![build status](https://secure.travis-ci.org/Turfjs/turf-grid.png)](http://travis-ci.org/Turfjs/turf-grid)
-
-turf grid module
+[![build status](https://secure.travis-ci.org/Turfjs/turf-point-grid.png)](http://travis-ci.org/Turfjs/turf-point-grid)
 
 
-### `turf.grid(extent, depth)`
+
+
+### `turf.point-grid(extent, depth)`
 
 Takes a bounding box and a cell depth and returns a FeatureCollection of Point features in a grid.
 
@@ -24,17 +24,20 @@ Takes a bounding box and a cell depth and returns a FeatureCollection of Point f
 var extent = [-70.823364, -33.553984, -70.473175, -33.302986];
 var depth = 10;
 
-var grid = turf.grid(extent, depth);
+var grid = turf.pointGrid(extent, depth);
 
 //=grid
 ```
+
+
+**Returns** `FeatureCollection`, grid as FeatureCollection with Point features
 
 ## Installation
 
 Requires [nodejs](http://nodejs.org/).
 
 ```sh
-$ npm install turf-grid
+$ npm install turf-point-grid
 ```
 
 ## Tests
@@ -42,4 +45,5 @@ $ npm install turf-grid
 ```sh
 $ npm test
 ```
+
 
