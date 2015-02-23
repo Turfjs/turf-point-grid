@@ -7,13 +7,15 @@ var distance = require('turf-distance');
  * @module turf/point-grid
  * @category interpolation
  * @param {Array<number>} extent extent in [minX, minY, maxX, maxY] order
- * @param {Number} depth how many cells to output
+ * @param {Number} cellWidth the distance across each cell
+ * @param {String} units used in calculating cellWidth ('miles' or 'kilometers')
  * @return {FeatureCollection} grid as FeatureCollection with {@link Point} features
  * @example
  * var extent = [-70.823364, -33.553984, -70.473175, -33.302986];
- * var depth = 10;
+ * var cellWidth = 3;
+ * var units = 'miles';
  *
- * var grid = turf.pointGrid(extent, depth);
+ * var grid = turf.pointGrid(extent, cellWidth, units);
  *
  * //=grid
  */
