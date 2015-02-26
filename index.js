@@ -2,7 +2,7 @@ var point = require('turf-point');
 var featurecollection = require('turf-featurecollection');
 var distance = require('turf-distance');
 /**
- * Takes a bounding box and a cell depth and returns a set of points in a grid.
+ * Takes a bounding box and a cell depth and returns a set of {@link Point|points} in a grid.
  *
  * @module turf/point-grid
  * @category interpolation
