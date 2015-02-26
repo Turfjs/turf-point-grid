@@ -2,14 +2,14 @@ var point = require('turf-point');
 var featurecollection = require('turf-featurecollection');
 var distance = require('turf-distance');
 /**
- * Takes a bounding box and a cell depth and returns a {@link FeatureCollection} of {@link Point} features in a grid.
+ * Takes a bounding box and a cell depth and returns a set of points in a grid.
  *
  * @module turf/point-grid
  * @category interpolation
  * @param {Array<number>} extent extent in [minX, minY, maxX, maxY] order
  * @param {Number} cellWidth the distance across each cell
  * @param {String} units used in calculating cellWidth ('miles' or 'kilometers')
- * @return {FeatureCollection} grid as FeatureCollection with {@link Point} features
+ * @return {FeatureCollection<Point>} grid of points
  * @example
  * var extent = [-70.823364, -33.553984, -70.473175, -33.302986];
  * var cellWidth = 3;
