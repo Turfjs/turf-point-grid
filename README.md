@@ -7,16 +7,16 @@
 
 ### `turf.point-grid(extent, cellWidth, units)`
 
-Takes a bounding box and a cell depth and returns a FeatureCollection of Point features in a grid.
+Takes a bounding box and a cell depth and returns a set of Point|points in a grid.
 
 
 ### Parameters
 
-| parameter   | type           | description                                             |
-| ----------- | -------------- | ------------------------------------------------------- |
-| `extent`    | Array.<number> | extent in [minX, minY, maxX, maxY] order                |
-| `cellWidth` | Number         | the distance across each cell                           |
-| `units`     | String         | used in calculating cellWidth ('miles' or 'kilometers') |
+| parameter   | type              | description                                             |
+| ----------- | ----------------- | ------------------------------------------------------- |
+| `extent`    | Array\.\<number\> | extent in [minX, minY, maxX, maxY] order                |
+| `cellWidth` | Number            | the distance across each cell                           |
+| `units`     | String            | used in calculating cellWidth ('miles' or 'kilometers') |
 
 
 ### Example
@@ -32,7 +32,7 @@ var grid = turf.pointGrid(extent, cellWidth, units);
 ```
 
 
-**Returns** `FeatureCollection`, grid as FeatureCollection with Point features
+**Returns** `FeatureCollection.<Point>`, grid of points
 
 ## Installation
 
