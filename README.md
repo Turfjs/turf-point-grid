@@ -1,3 +1,4 @@
+# DEPRECATED - replaced with [`@turf/point-grid`](https://github.com/Turfjs/turf/tree/master/packages/turf-point-grid)
 # turf-point-grid
 
 [![build status](https://secure.travis-ci.org/Turfjs/turf-point-grid.png)](http://travis-ci.org/Turfjs/turf-point-grid)
